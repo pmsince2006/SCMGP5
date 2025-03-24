@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter | FEE Project</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        async function getExchangeRate() {
+            const amount = document.querySelector('.amount input').value;
+            const fromCurrency = document.querySelector('.from select').value;
+            const toCurrency = document.querySelector('.to select').value;
+
+            const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`);
+            const data = await response.json();
+
+            const exchangeRate = data.rates[toCurrency];
+            const convertedAmount = (amount * exchangeRate).toFixed(2);
+
+            document.querySelector('.exchange-rate .rate').textContent = `${convertedAmount} ${toCurrency}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('button').addEventListener('click', (event) => {
+                event.preventDefault();
+                getExchangeRate();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="logo">Personal</a>
+        <a href="#" class="logo1">Business</a>
+        <a href="#" class="logo2">Currency</a>
+        <a href="#" class="logo3">Converter API</a>
+        <a href="#" class="logo4">Tools</a>
+        <a href="#" class="logo5">Resources</a>
+        <a href="#" class="logo6">Sign In</a>
+        <button class="blue">Register</button>
+        </div>
+        <div class="header">Pns Currency Converter</div>
+        <div class="header1">Check current foreign currency exchange rates</div>
+        <div class="wrapper">
+            <h1> Convert</h1>
+            <form action="#">
+                <div class="drop-list">
+                    <div class="amount">
+                        <p>Enter Amount</p>
+                        <input type="text" value="1">
+                     </div>
+                    <div class="from">
+                        <p>From</p>
+                        <div class="select-box">
+                            <img src="https://flagsapi.com/US/flat/64.png" alt="flag">
+                            <select>
+                                <option value="INR">USD-US</option>
+                                <option value="USD">INR-Indian Rupees Dollar</option>
+                                <option value="EUR">EUR-Euro</option>
+                                <option value="JPY">JPY-Japanese Yen</option>
+                                <option value="GBP">GBP-British Pound</option>
+                                <option value="CNY">CNY-Chinese Yuan Renminbi</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <span style='font-size:35px;'>&#8644;</span>
+    
+                    </div>
+                    <div class="to">
+                        <p>To</p>
+                        <div class="select-box">
+                            <img src="https://flagsapi.com/IN/flat/64.png" alt="flag">
+                            <select>
+                                <option value="INR">INR-Indian Rupees</option>
+                                <option value="USD">USD-US Dollar</option>
+                                <option value="EUR">EUR-Euro</option>
+                                <option value="JPY">JPY-Japanese Yen</option>
+                                <option value="GBP">GBP-British Pound</option>
+                                <option value="CNY">CNY-Chinese Yuan Renminbi</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="exchange-rate">1.00 US Dollar = <div class="rate">83.76117 Indian Rupees</div></div>
+                <button>Get Exchange Rate</button>
+            </form>
+        </div>
+    
+        <div>
+    
+        </div>
+        <div class="current">Pns Current Exchange Rates</div>
+        <div class="bar">Currency Profile</div>
+        <div class="bar">Amount</div>
+        <div class="bar">Change(24h)</div>
+        <div class="bar">Share</div>
+
+
+        <div class="us"><img src="https://flagsapi.com/US/flat/64.png" alt="flag">US Dollars</div>
+
+
+        <div class="eu"><img src="https://flagsapi.com/IN/flat/64.png" alt="flag">Indian Rupees</div>
+        <div class="eu">83.765</div>
+        <div class="eu">+0.065%</div>
+        <div class="eu"><button>Send</button></div>
+        <div class="eu"></div>
+        <br>
+        <div class="jp"><img src="https://flagsapi.com/JP/flat/64.png" alt="flag">Japanese Yen</div>
+        <div class="jp">143.750</div>
+        <div class="jp">+0.580%</div>
+        <div class="jp"><button>Send</button></div>
+        <div class="jp"></div>
+        <br>
+        <div class="au"><img src="https://flagsapi.com/GB/flat/64.png" alt="flag">British Pound</div>
+        <div class="au">0.7489</div>
+        <div class="au">+0.096%</div>
+        <div class="au"><button>Send</button></div>
+        <div class="au"></div>
+        <footer>
+            <div class="footer">
+                <p>The Original Currency Exchange Rates Calculator</p>
+                <div class="apps">Apps <br>
+
+                    Money Transfer & Currency Apps <br>
+                    Android Money Transfer App <br>
+                    iOS Money Transfer App</div> 
+                    <div class="app">Tools & Resourcesb <br>
+
+                        Blog <br>
+                        Currency Converter <br>
+                        Currency Charts <br>
+                        Historical Currency Rates <br>
+                        Currency Encyclopedia <br>
+                        Currency Rate Alerts <br>
+                        Currency Newsletters <br>
+                        IBAN Calculator <br>
+                        Glossary</div> </div>
+                        
+
+        </footer>
+</body>
+</html>

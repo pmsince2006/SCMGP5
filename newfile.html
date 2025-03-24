@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a, .navbar button {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar button {
+            background-color: #4CAF50;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+
+        .header, .header1, .current, .bar {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .wrapper {
+            width: 80%;
+            margin: auto;
+        }
+
+        .drop-list {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .amount, .from, .to {
+            flex: 1;
+            margin: 5px;
+        }
+
+        .amount p, .from p, .to p {
+            margin: 0;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .select-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .select-box select {
+            padding: 10px;
+            margin-left: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .exchange-rate, .bar, .us, .eu, .jp, .au {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer .apps, .footer .app {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="logo">Personal</a>
+        <a href="#" class="logo1">Business</a>
+        <a href="#" class="logo2">Currency</a>
+        <a href="#" class="logo3">Converter API</a>
+        <a href="#" class="logo4">Tools</a>
+        <a href="#" class="logo5">Resources</a>
+        <a href="#" class="logo6">Sign In</a>
+        <button class="blue">Register</button>
+    </div>
+    <div class="header">Currency Converter</div>
+    <div class="header1">Check current foreign currency exchange rates</div>
+    <div class="wrapper">
+        <h1>Convert</h1>
+        <form id="currency-form">
+            <div class="drop-list">
+                <div class="amount">
+                    <p>Enter Amount</p>
+                    <input type="text" value="1">
+                </div>
+                <div class="from">
+                    <p>From</p>
+                    <div class="select-box">
+                        <img src="https://flagsapi.com/US/flat/64.png" alt="flag">
+                        <select>
+                            <option value="USD">USD-US Dollar</option>
+                            <option value="INR">INR-Indian Rupees</option>
+                            <option value="EUR">EUR-Euro</option>
+                            <option value="JPY">JPY-Japanese Yen</option>
+                            <option value="GBP">GBP-British Pound</option>
+                            <option value="CNY">CNY-Chinese Yuan Renminbi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="icon">
+                    <span style='font-size:35px;'>&#8644;</span>
+                </div>
+                <div class="to">
+                    <p>To</p>
+                    <div class="select-box">
+                        <img src="https://flagsapi.com/IN/flat/64.png" alt="flag">
+                        <select>
+                            <option value="INR">INR-Indian Rupees</option>
+                            <option value="USD">USD-US Dollar</option>
+                            <option value="EUR">EUR-Euro</option>
+                            <option value="JPY">JPY-Japanese Yen</option>
+                            <option value="GBP">GBP-British Pound</option>
+                            <option value="CNY">CNY-Chinese Yuan Renminbi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-rate">1.00 US Dollar = <div class="rate">83.76117 Indian Rupees</div></div>
+            <button>Get Exchange Rate</button>
+        </form>
+    </div>
+    <div>
+    </div>
+    <div class="current">Current Exchange Rates</div>
+    <div class="bar">Currency Profile</div>
+    <div class="bar">Amount</div>
+    <div class="bar">Change (24h)</div>
+    <div class="bar">Share</div>
+    <div class="us"><img src="https://flagsapi.com/US/flat/64.png" alt="flag">US Dollars</div>
+    <div class="eu"><img src="https://flagsapi.com/IN/flat/64.png" alt="flag">Indian Rupees</div>
+    <div class="eu">83.765</div>
+    <div class="eu">+0.065%</div>
+    <div class="eu"><button>Send</button></div>
+    <div class="jp"><img src="https://flagsapi.com/JP/flat/64.png" alt="flag">Japanese Yen</div>
+    <div class="jp">143.750</div>
+    <div class="jp">+0.580%</div>
+    <div class="jp"><button>Send</button></div>
+    <div class="au"><img src="https://flagsapi.com/GB/flat/64.png" alt="flag">British Pound</div>
+    <div class="au">0.7489</div>
+    <div class="au">+0.096%</div>
+    <div class="au"><button>Send</button></div>
+    <footer>
+        <div class="footer">
+            <p>The Original Currency Exchange Rates Calculator</p>
+            <div class="apps">
+                Apps<br>
+                Money Transfer & Currency Apps<br>
+                Android Money Transfer App<br>
+                iOS Money Transfer App
+            </div>
+            <div class="app">
+                Tools & Resources<br>
+                Blog<br>
+                Currency Converter<br>
+                Currency Charts<br>
+                Historical Currency Rates<br>
+                Currency Encyclopedia<br>
+                Currency Rate Alerts<br>
+                Currency Newsletters<br>
+                IBAN Calculator<br>
+                Glossary
+            </div>
+        </div>
+    </footer>
+    <script>
+        const fromCurrency = document.querySelector('.from select');
+        const toCurrency = document.querySelector('.to select');
+        const amountInput = document.querySelector('.amount input');
+        const exchangeRateText = document.querySelector('.rate');
+        const form = document.querySelector('#currency-form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            getExchangeRate();
+        });
+
+        function getExchangeRate() {
+            const amount = amountInput.value;
+            const from = fromCurrency.value;
+            const to = toCurrency.value;
+
+            const url = `https://api.exchangerate-api.com/v4/latest/${from}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const rate = data.rates[to];
+                    const exchangeRate = (amount * rate).toFixed(2);
+                    exchangeRateText.textContent = `${exchangeRate} ${toCurrency.options[toCurrency.selectedIndex].text}`;
+                })
+                .catch(error => {
+                    console.error('Error fetching exchange rate:', error);
+                    exchangeRateText.textContent = 'Error fetching exchange rate. Please try again later.';
+                });
+        }
+    </script>
+</body>
+</html>
